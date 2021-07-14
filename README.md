@@ -92,7 +92,7 @@ Feito com :heart: por
 <a href="https://github.com/alexrocha97" target="_blank">Alex Rocha</a>\
 <a href="https://github.com/arturnascimento" target="_blank">Artur Nascimento</a>\
 <a href="https://github.com/bernaRocha" target="_blank">Bernardo Monteiro</a>\
-<a href="https://github.com/kylelionegds" target="_blank">Caio Edges</a>\
+<a href="https://github.com/kylelionegds" target="_blank">Caio Edgs</a>\
 <a href="https://github.com/c-Tos1wa" target="_blank">Cristina Iwassaki</a>\
 <a href="https://github.com/jvitorcardoso" target="_blank">João Cardoso</a>\
 <a href="https://github.com/JulianePires" target="_blank">Juliane Pires</a>
