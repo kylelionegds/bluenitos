@@ -9,19 +9,19 @@
 <h1 align="center">Bluenitos</h1>
 
 <p align="center">
-  <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/JulianePires/bluenitos?color=56BEB8">
+  <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/jvitorcardoso/bluenitos?color=56BEB8">
 
-  <img alt="Quantidade de linguagens utilizadas" src="https://img.shields.io/github/languages/count/JulianePires/bluenitos?color=56BEB8">
+  <img alt="Quantidade de linguagens utilizadas" src="https://img.shields.io/github/languages/count/jvitorcardoso/bluenitos?color=56BEB8">
 
-  <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/JulianePires/bluenitos?color=56BEB8">
+  <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/jvitorcardoso/bluenitos?color=56BEB8">
 
-  <img alt="Licença" src="https://img.shields.io/github/license/JulianePires/bluenitos?color=56BEB8">
+  <img alt="Licença" src="https://img.shields.io/github/license/jvitorcardoso/bluenitos?color=56BEB8">
 
-  <img alt="Github issues" src="https://img.shields.io/github/issues/JulianePires/bluenitos?color=56BEB8" />
+  <img alt="Github issues" src="https://img.shields.io/github/issues/jvitorcardoso/bluenitos?color=56BEB8" />
 
-  <img alt="Github forks" src="https://img.shields.io/github/forks/JulianePires/bluenitos?color=56BEB8" />
+  <img alt="Github forks" src="https://img.shields.io/github/forks/jvitorcardoso/bluenitos?color=56BEB8" />
 
-  <img alt="Github stars" src="https://img.shields.io/github/stars/JulianePires/bluenitos?color=56BEB8" />
+  <img alt="Github stars" src="https://img.shields.io/github/stars/jvitorcardoso/bluenitos?color=56BEB8" />
 </p>
 
 <h4 align="center"> 
@@ -37,14 +37,13 @@
   <a href="#white_check_mark-pré-requesitos">Pré requisitos</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-começando">Começando</a> &#xa0; | &#xa0;
   <a href="#memo-licença">Licença</a> &#xa0; | &#xa0;
-  <a href="https://github.com/JulianePires" target="_blank">Autor</a>
 </p>
 
 <br>
 
 ## :dart: Sobre
 
-Sobre o seu projeto
+CodeBlue - Plataforma de
 
 ## :sparkles: Funcionalidades
 
@@ -56,9 +55,16 @@ Sobre o seu projeto
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Node.js](https://nodejs.org/en/)
+Front-end:
+
 - [React](https://pt-br.reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Chakra UI](https://chakra-ui.com/)
+- [React Query](https://react-query.tanstack.com/)
+- [Formik](https://formik.org/docs/overview)
+- [Ramda](https://ramdajs.com/)
+- [React-Icons](https://react-icons.github.io/react-icons/search?q=two)
+- [Fontawesome](https://fontawesome.com)
 
 ## :white_check_mark: Pré requisitos
 

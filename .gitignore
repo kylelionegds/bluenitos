@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/codeblue-app/node_modules
+/codeblue-app/.pnp
+/codeblue-app/.pnp.js
+
+# testing
+/codeblue-app/coverage
+
+# production
+/codeblue-app/build
+
+# misc
+/codeblue-app/.DS_Store
+/codeblue-app/.env.local
+/codeblue-app/.env.development.local
+/codeblue-app/.env.test.local
+/codeblue-app/.env.production.local
+
+/codeblue-app/npm-debug.log*
+/codeblue-app/yarn-debug.log*
+/codeblue-app/yarn-error.log*
