@@ -1,6 +1,12 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
+import Login from '../app/components/login'
+import Logon from '../app/components/logon'
 
 export function App() {
-  return <Flex>Olá mundo!</Flex>;
+  return (
+      <div>
+        <Logon />
+      </div>
+
+  )
 }
