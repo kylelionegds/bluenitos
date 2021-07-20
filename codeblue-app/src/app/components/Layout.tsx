@@ -1,0 +1,29 @@
+import React, { ReactNode } from "react";
+import { Flex, Heading } from "@chakra-ui/react";
+import { Paths } from "../../types";
+import { SideNav } from "../modules/dashboard/components/SideNav";
+
+interface LayoutProps {
+  title: string;
+  currentPath: Paths;
+  children: ReactNode;
+}
+
+export function Layout({ title, currentPath, children }: LayoutProps) {
+  return (
+    <Flex w="100%" h="100vh" bg="brand.300">
+      <SideNav currentPath={currentPath} />
+      <Flex p="8" w="85%" h="100vh" flexDirection="column">
+        <Heading
+          w="100%"
+          fontFamily="Roboto Mono"
+          color="brand.800"
+          textShadow="4px 4px #1E1A28"
+        >
+          _{title}
+        </Heading>
+        {children}
+      </Flex>
+    </Flex>
+  );
+}

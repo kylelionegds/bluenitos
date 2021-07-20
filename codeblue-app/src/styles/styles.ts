@@ -1,10 +1,9 @@
 const styles = {
   global: {
     body: {
-      fontFamily: "'Roboto Mono', monospace",
+      fontFamily: "Roboto Mono",
       bg: "white",
-      color: "brand.400",
-      letterSpacing: "tight",
+      color: "brand.900",
       lineHeight: "short",
       fontSize: {
         sm: "0.75rem",
@@ -12,6 +11,9 @@ const styles = {
         lg: "1rem",
         xl: "1rem",
       },
+    },
+    heading: {
+      fontFamily: "JetBrains Mono",
     },
   },
 };

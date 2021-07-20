@@ -1,7 +1,7 @@
 const fonts = {
-  heading: "'JetBrains Mono', monospace",
-  body: "'Roboto Mono', monospace",
-  text: "'Roboto Mono', monospace",
+  heading: "JetBrains Mono",
+  body: "Roboto Mono",
+  text: "Roboto Mono",
 };
 
 export default fonts;

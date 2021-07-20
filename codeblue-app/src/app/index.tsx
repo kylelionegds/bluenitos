@@ -1,12 +1,12 @@
 import React from "react";
-import Login from '../app/components/login'
-import Logon from '../app/components/logon'
+import { BrowserRouter } from "react-router-dom";
+
+import Routes from "./modules/Routes/Routes";
 
 export function App() {
   return (
-      <div>
-        <Logon />
-      </div>
-
-  )
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+  );
 }
