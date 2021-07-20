@@ -12,6 +12,7 @@ const colors = {
     400: "#2B2B2B",
   },
   brand: {
+    200: "#7A7CFF", //DETAILS
     300: "#312E38", //BACKGROUND
     400: "#1E1A28", //DARKER
     500: "#3E2C7E", //DARK

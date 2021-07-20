@@ -1,6 +1,12 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
+import { BrowserRouter } from "react-router-dom";
+
+import Routes from "./modules/Routes/Routes";
 
 export function App() {
-  return <Flex>Olá mundo!</Flex>;
+  return (
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+  );
 }
