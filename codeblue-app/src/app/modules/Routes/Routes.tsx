@@ -7,6 +7,8 @@ import { Challenges } from "../../pages/Challenges";
 import { Ranking } from "../../pages/Ranking";
 import { Progress } from "../../pages/Progress";
 import { Profile } from "../../pages/Profile";
+import Login from "../../components/login";
+import Logon from "../../components/logon";
 
 const NotAllowedComponent = () => (
   <div>
@@ -14,6 +16,8 @@ const NotAllowedComponent = () => (
   </div>
 );
 
+const LOGIN = ApplicationPaths.LOGIN;
+const CREATE = ApplicationPaths.CREATE;
 const HOME = ApplicationPaths.HOME;
 const CHALLENGES = ApplicationPaths.CHALLENGES;
 const RANKING = ApplicationPaths.RANKING;
@@ -22,6 +26,8 @@ const PROFILE = ApplicationPaths.PROFILE;
 
 const Routes = () => (
   <Switch>
+    <Route exact path={LOGIN} component={Login} />
+    <Route exact path={CREATE} component={Logon} />
     <Route exact path={HOME} component={Home} />
     <Route exact path={CHALLENGES} component={Challenges} />
     <Route exact path={RANKING} component={Ranking} />
