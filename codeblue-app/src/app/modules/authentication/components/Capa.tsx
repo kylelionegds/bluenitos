@@ -1,7 +1,7 @@
 import React from "react";
 import { VStack } from "@chakra-ui/react";
 import { Image, Text } from "@chakra-ui/react";
-import Capa from "../../app/images/capa.png";
+import Capa from "../../../images/capa.png";
 
 export default function ImText() {
   return (
@@ -13,7 +13,6 @@ export default function ImText() {
         height="424px"
         width="571px"
       />
-
       <Text textAlign="center" color="white" fontSize="19px">
         Junte-se a uma comunidade de{" "}
         <Text color="brand.700">desenvolvedores</Text> praticando, competindo e

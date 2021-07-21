@@ -1,14 +1,14 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import { ApplicationPaths } from "../../../types";
-import { Home } from "../../pages/Home";
 import { Challenges } from "../../pages/Challenges";
-import { Ranking } from "../../pages/Ranking";
-import { Progress } from "../../pages/Progress";
+import { Home } from "../../pages/Home";
 import { Profile } from "../../pages/Profile";
-import Login from "../../components/login";
-import Logon from "../../components/logon";
+import { Progress } from "../../pages/Progress";
+import { Ranking } from "../../pages/Ranking";
+import Login from "../authentication/Login";
+import Logon from "../authentication/Logon";
 
 const NotAllowedComponent = () => (
   <div>

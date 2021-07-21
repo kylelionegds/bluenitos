@@ -1,5 +1,6 @@
 import React from "react";
 import { BsBoxArrowInRight } from "react-icons/bs";
+import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
@@ -15,14 +16,32 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-import { ApplicationPaths } from "../../types";
-import ImText from "./capa";
+import { ApplicationPaths } from "../../../types";
+import ImText from "./components/Capa";
 
-export default function Login() {
+export default function Logon() {
   return (
     <HStack padding="12" bg="brand.300" direction="row" justifyContent="center">
-      <VStack spacing={2}>
-        <Text color="white">Faça seu login</Text>
+      <VStack margin-top="20" spacing={2}>
+        <Text color="white">Faça seu cadastro</Text>
+
+        <InputGroup>
+          <InputLeftElement
+            color="gray.200"
+            pointerEvents="none"
+            boxSize={12}
+            children={<FaUser />}
+          />
+          <Input
+            type="email"
+            variant="filled"
+            placeholder="Username"
+            width="340px"
+            height="56px"
+            borderRadius="10px"
+          />
+        </InputGroup>
+
         <InputGroup>
           <InputLeftElement
             color="gray.200"
@@ -33,13 +52,12 @@ export default function Login() {
           <Input
             type="email"
             variant="filled"
-            placeholder="Senha"
+            placeholder="E-mail"
             width="340px"
             height="56px"
             borderRadius="10px"
           />
         </InputGroup>
-
         <InputGroup>
           <InputLeftElement
             color="gray.200"
@@ -57,22 +75,17 @@ export default function Login() {
           />
         </InputGroup>
         <Button type="button" width="340px" height="38px" borderRadius="10px">
-          Entrar
+          Criar Conta
         </Button>
-
-        <Text as={Link} to="#" fontSize="15px" color="white">
-          Esqueci minha senha
-        </Text>
 
         <Text
           as={Link}
-          to={ApplicationPaths.CREATE}
+          to={ApplicationPaths.LOGIN}
           fontSize="14px"
           color="white"
-          mt="25px"
         >
-          <Icon as={BsBoxArrowInRight} color="brand.900" />
-          Criar Conta
+          <Icon as={BsBoxArrowInRight} color="brand.900" fontSize="lg" />
+          Entrar com a minha conta
         </Text>
       </VStack>
 

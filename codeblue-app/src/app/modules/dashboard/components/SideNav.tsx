@@ -12,7 +12,7 @@ import { Icon, IconButton, Text, VStack } from "@chakra-ui/react";
 
 import { ApplicationPaths, Paths } from "../../../../types";
 import { Avatar } from "../../../components/Avatar";
-import { Logo } from "../../../components/Logo";
+import { Logo } from "../../authentication/components/Logo";
 
 interface SideNavProps {
   currentPath: Paths;
