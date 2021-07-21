@@ -17,12 +17,12 @@ import {
 } from "@chakra-ui/react";
 
 import { ApplicationPaths } from "../../../types";
-import ImText from "./components/Capa";
+import ImText from "./components/ImageFront";
 
 export default function Logon() {
   return (
     <HStack padding="12" bg="brand.300" direction="row" justifyContent="center">
-      <VStack margin-top="20" spacing={2}>
+      <VStack spacing={2}>
         <Text color="white">Faça seu cadastro</Text>
 
         <InputGroup>
@@ -33,12 +33,12 @@ export default function Logon() {
             children={<FaUser />}
           />
           <Input
-            type="email"
+            type="text"
             variant="filled"
             placeholder="Username"
-            width="340px"
-            height="56px"
-            borderRadius="10px"
+            width="20rem"
+            height="4rem"
+            borderRadius="10"
           />
         </InputGroup>
 
@@ -53,9 +53,9 @@ export default function Logon() {
             type="email"
             variant="filled"
             placeholder="E-mail"
-            width="340px"
-            height="56px"
-            borderRadius="10px"
+            width="20rem"
+            height="4rem"
+            borderRadius="10"
           />
         </InputGroup>
         <InputGroup>
@@ -69,19 +69,19 @@ export default function Logon() {
             type="password"
             variant="filled"
             placeholder="Senha"
-            width="340px"
-            height="56px"
-            borderRadius="10px"
+            width="20rem"
+            height="4rem"
+            borderRadius="10"
           />
         </InputGroup>
-        <Button type="button" width="340px" height="38px" borderRadius="10px">
+        <Button type="button" width="20rem" height="38" borderRadius="10px">
           Criar Conta
         </Button>
 
         <Text
           as={Link}
           to={ApplicationPaths.LOGIN}
-          fontSize="14px"
+          fontSize="14"
           color="white"
         >
           <Icon as={BsBoxArrowInRight} color="brand.900" fontSize="lg" />
