@@ -16,12 +16,12 @@ import {
 } from "@chakra-ui/react";
 
 import { ApplicationPaths } from "../../../types";
-import ImText from "./components/Capa";
+import ImText from "./components/ImageFront";
 
 export default function Login() {
   return (
     <HStack padding="12" bg="brand.300" direction="row" justifyContent="center">
-      <VStack spacing={2}>
+      <VStack spacing={3}>
         <Text color="white">Faça seu login</Text>
         <InputGroup>
           <InputLeftElement
@@ -33,10 +33,10 @@ export default function Login() {
           <Input
             type="email"
             variant="filled"
-            placeholder="Senha"
-            width="340px"
-            height="56px"
-            borderRadius="10px"
+            placeholder="E-mail"
+            width="20rem"
+            height="4rem"
+            borderRadius="10"
           />
         </InputGroup>
 
@@ -51,25 +51,20 @@ export default function Login() {
             type="password"
             variant="filled"
             placeholder="Senha"
-            width="340px"
-            height="56px"
-            borderRadius="10px"
+            width="20rem"
+            height="4rem"
+            borderRadius="10"
           />
         </InputGroup>
-        <Button type="button" width="340px" height="38px" borderRadius="10px">
+        <Button type="button" width="20rem" height="38" borderRadius="10px">
           Entrar
         </Button>
-
-        <Text as={Link} to="#" fontSize="15px" color="white">
-          Esqueci minha senha
-        </Text>
 
         <Text
           as={Link}
           to={ApplicationPaths.CREATE}
-          fontSize="14px"
+          fontSize="14"
           color="white"
-          mt="25px"
         >
           <Icon as={BsBoxArrowInRight} color="brand.900" />
           Criar Conta
