@@ -1,3 +1,4 @@
+import { Start } from "app/pages/Start";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
@@ -16,6 +17,7 @@ const NotAllowedComponent = () => (
   </div>
 );
 
+const START = ApplicationPaths.START;
 const LOGIN = ApplicationPaths.LOGIN;
 const CREATE = ApplicationPaths.CREATE;
 const HOME = ApplicationPaths.HOME;
@@ -26,6 +28,7 @@ const PROFILE = ApplicationPaths.PROFILE;
 
 const Routes = () => (
   <Switch>
+    <Route exact path={START} component={Start} />
     <Route exact path={LOGIN} component={Login} />
     <Route exact path={CREATE} component={Logon} />
     <Route exact path={HOME} component={Home} />

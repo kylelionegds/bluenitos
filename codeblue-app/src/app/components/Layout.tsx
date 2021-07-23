@@ -13,7 +13,7 @@ export function Layout({ title, currentPath, children }: LayoutProps) {
   return (
     <Flex w="100%" h="100vh" bg="brand.300">
       <SideNav currentPath={currentPath} />
-      <Flex p="8" w="85%" h="100vh" flexDirection="column">
+      <Flex p="8" w="85%" h="100%" flexDirection="column">
         <Heading
           w="100%"
           fontFamily="Roboto Mono"

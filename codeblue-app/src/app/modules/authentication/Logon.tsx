@@ -1,3 +1,5 @@
+import { Footer } from "app/components/Footer";
+import { Images } from "app/constants";
 import React from "react";
 import { BsBoxArrowInRight } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
@@ -9,6 +11,7 @@ import {
   Button,
   HStack,
   Icon,
+  Image,
   Input,
   InputGroup,
   InputLeftElement,
@@ -21,75 +24,100 @@ import ImText from "./components/ImageFront";
 
 export default function Logon() {
   return (
-    <HStack padding="12" bg="brand.300" direction="row" justifyContent="center">
+    <HStack
+      w="100%"
+      minH="100vh"
+      bg="brand.300"
+      alignItems="center"
+      justifyContent="center"
+    >
       <VStack spacing={2}>
-        <Text color="white">Faça seu cadastro</Text>
-
+        <Image src={Images.LOGO} mb="10" />
+        <Text color="white" fontSize="2xl">
+          Faça seu cadastro
+        </Text>
         <InputGroup>
           <InputLeftElement
-            color="gray.200"
+            color="gray.100"
             pointerEvents="none"
-            boxSize={12}
+            boxSize={14}
             children={<FaUser />}
           />
           <Input
             type="text"
-            variant="filled"
             placeholder="Username"
-            width="20rem"
-            height="4rem"
-            borderRadius="10"
+            width="100%"
+            height="14"
+            borderRadius="10px"
+            border="none"
+            bg="brand.400"
+            color="gray.100"
+            pl="12"
+          />
+        </InputGroup>
+        <InputGroup>
+          <InputLeftElement
+            color="gray.100"
+            pointerEvents="none"
+            boxSize={14}
+            children={<MdEmail />}
+          />
+          <Input
+            type="email"
+            placeholder="Email"
+            width="100%"
+            height="14"
+            borderRadius="10px"
+            border="none"
+            bg="brand.400"
+            color="gray.100"
+            pl="12"
           />
         </InputGroup>
 
         <InputGroup>
           <InputLeftElement
-            color="gray.200"
+            color="gray.100"
             pointerEvents="none"
-            boxSize={12}
-            children={<MdEmail />}
-          />
-          <Input
-            type="email"
-            variant="filled"
-            placeholder="E-mail"
-            width="20rem"
-            height="4rem"
-            borderRadius="10"
-          />
-        </InputGroup>
-        <InputGroup>
-          <InputLeftElement
-            color="gray.200"
-            pointerEvents="none"
-            boxSize={12}
+            boxSize={14}
             children={<RiLockPasswordFill />}
           />
           <Input
             type="password"
-            variant="filled"
             placeholder="Senha"
-            width="20rem"
-            height="4rem"
-            borderRadius="10"
+            width="100%"
+            height="14"
+            borderRadius="10px"
+            border="none"
+            bg="brand.400"
+            color="gray.100"
+            pl="12"
           />
         </InputGroup>
-        <Button type="button" width="20rem" height="38" borderRadius="10px">
-          Criar Conta
+        <Button
+          type="button"
+          width="340px"
+          height="12"
+          borderRadius="10px"
+          _hover={{ bg: "brand.200" }}
+        >
+          Criar conta
         </Button>
 
         <Text
           as={Link}
           to={ApplicationPaths.LOGIN}
-          fontSize="14"
+          fontSize="md"
           color="white"
+          mt="8"
         >
-          <Icon as={BsBoxArrowInRight} color="brand.900" fontSize="lg" />
+          <Icon as={BsBoxArrowInRight} color="brand.800" mr="2" />
           Entrar com a minha conta
         </Text>
       </VStack>
 
       <ImText />
+      <Footer />
     </HStack>
   );
 }
