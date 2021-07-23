@@ -1,18 +1,13 @@
 import React from "react";
 import { VStack } from "@chakra-ui/react";
 import { Image, Text } from "@chakra-ui/react";
-import Capa from "../../../images/capa.png";
+
+import { Images } from "app/constants";
 
 export default function ImText() {
   return (
-    <VStack>
-      <Image
-        ml="100px"
-        src={Capa}
-        alt="landing-page-coding"
-        height="424px"
-        width="571px"
-      />
+    <VStack alignItems="center" spacing="12">
+      <Image w="60%" src={Images.COVER} alt="landing-page-coding" />
       <Text textAlign="center" color="white" fontSize="19px">
         Junte-se a uma comunidade de{" "}
         <Text color="brand.700">desenvolvedores</Text> praticando, competindo e

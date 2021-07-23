@@ -8,6 +8,7 @@ import {
   Button,
   HStack,
   Icon,
+  Image,
   Input,
   InputGroup,
   InputLeftElement,
@@ -17,66 +18,86 @@ import {
 
 import { ApplicationPaths } from "../../../types";
 import ImText from "./components/Capa";
+import { Footer } from "app/components/Footer";
+import { Images } from "app/constants";
 
 export default function Login() {
   return (
-    <HStack padding="12" bg="brand.300" direction="row" justifyContent="center">
+    <HStack
+      w="100%"
+      minH="100vh"
+      bg="brand.300"
+      alignItems="center"
+      justifyContent="center"
+    >
       <VStack spacing={2}>
-        <Text color="white">Faça seu login</Text>
+        <Image src={Images.LOGO} mb="10" />
+        <Text color="white" fontSize="2xl" mb="4">
+          Faça seu login
+        </Text>
         <InputGroup>
           <InputLeftElement
-            color="gray.200"
+            color="gray.100"
             pointerEvents="none"
-            boxSize={12}
+            boxSize={14}
             children={<MdEmail />}
           />
           <Input
             type="email"
-            variant="filled"
-            placeholder="Senha"
-            width="340px"
-            height="56px"
+            placeholder="Email"
+            width="100%"
+            height="14"
             borderRadius="10px"
+            border="none"
+            bg="brand.400"
+            color="gray.100"
+            pl="12"
           />
         </InputGroup>
 
         <InputGroup>
           <InputLeftElement
-            color="gray.200"
+            color="gray.100"
             pointerEvents="none"
-            boxSize={12}
+            boxSize={14}
             children={<RiLockPasswordFill />}
           />
           <Input
             type="password"
-            variant="filled"
             placeholder="Senha"
-            width="340px"
-            height="56px"
+            width="100%"
+            height="14"
             borderRadius="10px"
+            border="none"
+            bg="brand.400"
+            color="gray.100"
+            pl="12"
           />
         </InputGroup>
-        <Button type="button" width="340px" height="38px" borderRadius="10px">
+        <Button
+          type="button"
+          width="340px"
+          height="12"
+          borderRadius="10px"
+          _hover={{ bg: "brand.200" }}
+        >
           Entrar
         </Button>
-
-        <Text as={Link} to="#" fontSize="15px" color="white">
-          Esqueci minha senha
-        </Text>
 
         <Text
           as={Link}
           to={ApplicationPaths.CREATE}
-          fontSize="14px"
+          fontSize="md"
           color="white"
-          mt="25px"
+          mt="8"
         >
-          <Icon as={BsBoxArrowInRight} color="brand.900" />
+          <Icon as={BsBoxArrowInRight} color="brand.800" mr="2" />
           Criar Conta
         </Text>
       </VStack>
 
       <ImText />
+      <Footer />
     </HStack>
   );
 }
