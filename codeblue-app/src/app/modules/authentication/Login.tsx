@@ -1,3 +1,5 @@
+import { Footer } from "app/components/Footer";
+import { Images } from "app/constants";
 import React from "react";
 import { BsBoxArrowInRight } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
@@ -17,9 +19,7 @@ import {
 } from "@chakra-ui/react";
 
 import { ApplicationPaths } from "../../../types";
-import ImText from "./components/Capa";
-import { Footer } from "app/components/Footer";
-import { Images } from "app/constants";
+import ImText from "./components/ImageFront";
 
 export default function Login() {
   return (

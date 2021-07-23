@@ -1,5 +1,5 @@
 import Logo from "../images/logo.svg";
-import Cover from "../images/capa.png";
+import Cover from "../images/photo.png";
 import StartCover from "../images/start_cover.svg";
 import Python from "../images/python.svg";
 import Javascript from "../images/javascript.svg";

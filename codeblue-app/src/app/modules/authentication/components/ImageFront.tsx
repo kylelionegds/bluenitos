@@ -1,8 +1,7 @@
-import React from "react";
-import { VStack } from "@chakra-ui/react";
-import { Image, Text } from "@chakra-ui/react";
-
 import { Images } from "app/constants";
+import React from "react";
+
+import { Image, Text, VStack } from "@chakra-ui/react";
 
 export default function ImText() {
   return (
