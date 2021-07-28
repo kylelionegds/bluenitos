@@ -1,10 +1,9 @@
-import { Flex, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import { Footer } from "app/components/Footer";
 import { Images } from "app/constants";
-
 import { StartButton } from "app/modules/start/components/StartButton";
 import React from "react";
-import { Link } from "react-router-dom";
+
+import { Flex, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 
 export function Start() {
   return (
@@ -51,12 +50,15 @@ export function Start() {
           alignSelf="center"
           direction={["column", "column", "row"]}
         >
-          <StartButton type="login" />
-          <StartButton type="create" />
+          <StartButton dataTestId="to-login-button" type="login" />
+          <StartButton dataTestId="to-create-button" type="create" />
         </Stack>
       </VStack>
       <Image src={Images.STARTCOVER} />
-      <Footer />
+      <Footer
+        to="https://storyset.com/web"
+        credits="Web illustrations by Storyset"
+      />
     </Flex>
   );
 }

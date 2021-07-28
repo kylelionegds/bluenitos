@@ -1,6 +1,7 @@
 const styles = {
   global: {
     body: {
+      boxSizing: "border-box",
       fontFamily: "Roboto Mono",
       bg: "white",
       color: "brand.900",

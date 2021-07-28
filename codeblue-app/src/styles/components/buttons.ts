@@ -7,6 +7,13 @@ const buttons = {
     },
   },
   variants: {
+    solid: {
+      bgColor: "brand.300",
+      color: "brand.700",
+      _hover: {
+        bgColor: "brand.400",
+      },
+    },
     nav: {
       color: "brand.800",
       bgColor: "transparent",

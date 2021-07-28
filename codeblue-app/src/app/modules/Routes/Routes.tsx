@@ -11,11 +11,11 @@ import { Ranking } from "../../pages/Ranking";
 import Login from "../authentication/Login";
 import Logon from "../authentication/Logon";
 
-const NotAllowedComponent = () => (
-  <div>
-    <h2>Not allowed page.</h2>
-  </div>
-);
+// const NotAllowedComponent = () => (
+//   <div>
+//     <h2>Not allowed page.</h2>
+//   </div>
+// );
 
 const START = ApplicationPaths.START;
 const LOGIN = ApplicationPaths.LOGIN;

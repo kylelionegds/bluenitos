@@ -18,6 +18,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "axios": "^0.21.1",
+    "formik": "^2.2.9",
     "framer-motion": "^4.0.0",
     "netlify-cli": "^5.0.0",
     "react": "^17.0.2",
@@ -29,14 +30,16 @@
     "react-scripts": "^4.0.3",
     "tslib": "^2.3.0",
     "typescript": "^3.9.5",
-    "web-vitals": "^0.2.2"
+    "web-vitals": "^0.2.2",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "netlify deploy"
+    "deploy": "netlify deploy",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,6 +58,7 @@
   },
   "devDependencies": {
     "@types/react-router": "^5.1.16",
-    "@types/react-router-dom": "^5.1.8"
+    "@types/react-router-dom": "^5.1.8",
+    "cypress": "^8.0.0"
   }
 }
