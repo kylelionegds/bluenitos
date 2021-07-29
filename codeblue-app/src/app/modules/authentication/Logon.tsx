@@ -12,7 +12,7 @@ import {
   FaUser,
   FaUserAstronaut,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { passwordRegex } from "utils/functions";
 import * as yup from "yup";
 
@@ -30,9 +30,13 @@ import {
 
 import { ApplicationPaths } from "../../../types";
 import ImText from "./components/ImageFront";
+import { useRegister } from "hooks/useRegister";
 
 export default function Logon() {
   const InputRef = useRef<HTMLInputElement>();
+  let history = useHistory();
+
+  const { mutate } = useRegister();
 
   type formikType = {
     Avatar: string;
@@ -82,7 +86,25 @@ export default function Logon() {
         )
         .required("Senha é obrigatória"),
     }),
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      mutate(
+        {
+          Email: values.Email,
+          Nome: values.Nome,
+          Sobrenome: values.Sobrenome,
+          PasswordHash: values.PasswordHash,
+          Username: values.Username,
+        },
+        {
+          onSuccess: () => {
+            history.push(ApplicationPaths.HOME);
+          },
+          onError: (err) => {
+            formik.setFieldError("Nome", String(err));
+          },
+        }
+      );
+    },
   });
   return (
     <form
@@ -158,7 +180,9 @@ export default function Logon() {
                 onError={(error) => formik.setFieldError("Avatar", error)}
                 ref={InputRef}
               />
-              <FormErrorMessage>{formik.errors.Avatar}</FormErrorMessage>
+              <FormErrorMessage w="auto">
+                {formik.errors.Avatar}
+              </FormErrorMessage>
             </VStack>
           </FormControl>
           <VStack
@@ -176,7 +200,9 @@ export default function Logon() {
                 isRequired
                 isInvalid={!!formik.errors.Nome && !!formik.touched.Nome}
               >
-                <FormErrorMessage>{formik.errors.Nome}</FormErrorMessage>
+                <FormErrorMessage w="auto">
+                  {formik.errors.Nome}
+                </FormErrorMessage>
                 <FormInput
                   icon={FaUser}
                   onChange={formik.handleChange("Nome")}
@@ -192,7 +218,9 @@ export default function Logon() {
                   !!formik.errors.Sobrenome && !!formik.touched.Sobrenome
                 }
               >
-                <FormErrorMessage>{formik.errors.Sobrenome}</FormErrorMessage>
+                <FormErrorMessage w="auto">
+                  {formik.errors.Sobrenome}
+                </FormErrorMessage>
                 <FormInput
                   icon={FaRegUser}
                   onChange={formik.handleChange("Sobrenome")}
@@ -208,7 +236,9 @@ export default function Logon() {
                   !!formik.errors.Username && !!formik.touched.Username
                 }
               >
-                <FormErrorMessage>{formik.errors.Username}</FormErrorMessage>
+                <FormErrorMessage w="auto">
+                  {formik.errors.Username}
+                </FormErrorMessage>
                 <FormInput
                   icon={FaUserAstronaut}
                   onChange={formik.handleChange("Username")}
@@ -222,7 +252,9 @@ export default function Logon() {
                 isRequired
                 isInvalid={!!formik.errors.Email && !!formik.touched.Email}
               >
-                <FormErrorMessage>{formik.errors.Email}</FormErrorMessage>
+                <FormErrorMessage w="auto">
+                  {formik.errors.Email}
+                </FormErrorMessage>
                 <FormInput
                   icon={FaEnvelope}
                   onChange={formik.handleChange("Email")}
@@ -238,7 +270,7 @@ export default function Logon() {
                   !!formik.errors.PasswordHash && !!formik.touched.PasswordHash
                 }
               >
-                <FormErrorMessage>
+                <FormErrorMessage w="auto">
                   {formik.errors.PasswordHash}
                 </FormErrorMessage>
                 <FormInput

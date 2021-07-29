@@ -2,7 +2,7 @@ import { Footer } from "app/components/Footer";
 import { Images } from "app/constants";
 import React from "react";
 import { BsBoxArrowInRight } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 
 import {
@@ -22,8 +22,12 @@ import ImText from "./components/ImageFront";
 import { useFormik } from "formik";
 import { FormInput } from "app/components/FormInput";
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { useLogin } from "hooks/useLogin";
 
 export default function Login() {
+  const { mutate } = useLogin();
+  let history = useHistory();
+
   type formikType = {
     Email: string;
     PasswordHash: string;
@@ -42,7 +46,20 @@ export default function Login() {
         .required("Email é obrigatório"),
       PasswordHash: yup.string().required("Senha é obrigatória"),
     }),
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      mutate(
+        { Email: values.Email, PasswordHash: values.PasswordHash },
+        {
+          onSuccess: (data) => {
+            console.log(data);
+            history.push(ApplicationPaths.HOME);
+          },
+          onError: (err) => {
+            formik.setFieldError("Email", String(err));
+          },
+        }
+      );
+    },
   });
   return (
     <form
@@ -91,7 +108,9 @@ export default function Login() {
               isRequired
               isInvalid={!!formik.errors.Email && !!formik.touched.Email}
             >
-              <FormErrorMessage>{formik.errors.Email}</FormErrorMessage>
+              <FormErrorMessage w="auto">
+                {formik.errors.Email}
+              </FormErrorMessage>
               <FormInput
                 icon={FaEnvelope}
                 onChange={formik.handleChange("Email")}
@@ -107,7 +126,9 @@ export default function Login() {
                 !!formik.errors.PasswordHash && !!formik.touched.PasswordHash
               }
             >
-              <FormErrorMessage>{formik.errors.PasswordHash}</FormErrorMessage>
+              <FormErrorMessage w="auto">
+                {formik.errors.PasswordHash}
+              </FormErrorMessage>
               <FormInput
                 icon={FaLock}
                 onChange={formik.handleChange("PasswordHash")}

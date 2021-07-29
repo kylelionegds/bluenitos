@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ApplicationPaths } from "types";
 
 import { Button } from "@chakra-ui/react";
-import { string } from "yup/lib/locale";
 
 interface StartButtonProps {
   type: "login" | "create";
