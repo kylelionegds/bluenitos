@@ -10,7 +10,7 @@ import Brass from '../images/brass_1.svg'
 import Profile from '../images/avatar-2.svg'
 import SingleChallenge from './components/SingleChallenge'
 import SingleProgress from './components/SingleProgress'
-import SeeMore from './components/SeeMore'
+import { BsArrowRight } from 'react-icons/bs'
 
 import {
   Text,
@@ -161,9 +161,24 @@ export function Home() {
                 fontSize='18'
               > Paula
               </Text>
-              <Text color='gray.400'>250 pontos</Text>
+              <Text
+                color='gray.400'
+              >
+                250 pontos
+              </Text>
             </HStack>
-            <SeeMore />
+            <Text
+              color='brand.400'
+              textAlign='right'
+              mt='3'
+            >
+              veja mais
+              <Icon as={BsArrowRight}
+                color='brand.400'
+                fontSize='20'
+                mr={4}
+              />
+            </Text>
           </Box>
         </Box>
 
@@ -178,8 +193,19 @@ export function Home() {
 
           <Box bg='brand.200' borderRadius='5' >
             <SingleProgress />
-            <SingleProgress />
-            <SeeMore />
+            
+            <Text
+              color='brand.400'
+              textAlign='right'
+              mt='3'
+            >
+              veja mais
+              <Icon as={BsArrowRight}
+                color='brand.400'
+                fontSize='20'
+                mr={4}
+              />
+            </Text>
           </Box>
 
         </Box>
