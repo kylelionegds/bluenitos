@@ -4,23 +4,23 @@
 /node_modules
 yarn.lock
 package.json
-/codeblue-app/node_modules
-/codeblue-app/.pnp
-/codeblue-app/.pnp.js
+/codeblue/node_modules
+/codeblue/.pnp
+/codeblue/.pnp.js
 
 # testing
-/codeblue-app/coverage
+/codeblue/coverage
 
 # production
-/codeblue-app/build
+/codeblue/build
 
 # misc
-/codeblue-app/.DS_Store
-/codeblue-app/.env.local
-/codeblue-app/.env.development.local
-/codeblue-app/.env.test.local
-/codeblue-app/.env.production.local
+/codeblue/.DS_Store
+/codeblue/.env.local
+/codeblue/.env.development.local
+/codeblue/.env.test.local
+/codeblue/.env.production.local
 
-/codeblue-app/npm-debug.log*
-/codeblue-app/yarn-debug.log*
-/codeblue-app/yarn-error.log*
+/codeblue/npm-debug.log*
+/codeblue/yarn-debug.log*
+/codeblue/yarn-error.log*
