@@ -1,23 +1,17 @@
-import React from 'react';
-import { HStack, Icon, Text } from '@chakra-ui/react';
-import { HiCheckCircle } from 'react-icons/hi'
+import React from "react";
+import { HStack, Icon, Text } from "@chakra-ui/react";
+import { HiCheckCircle } from "react-icons/hi";
 
 export default function SingleProgress() {
   return (
     <>
-      <HStack p={2} ml={3} mr={3} spacing={6}>
-        <Icon as={HiCheckCircle} color='success' />
-        <Text
-          color='brand.400'
-        >
-          <strong>Hello World</strong>
+      <HStack p={2} m={3} spacing={4}>
+        <Icon as={HiCheckCircle} color="success" fontSize="xl" />
+        <Text color="brand.400" fontWeight="600">
+          Hello World
         </Text>
-        <Text
-          color='brand.400'
-        >
-          100 pontos
-        </Text>
+        <Text color="brand.400">100 pontos</Text>
       </HStack>
     </>
-  )
+  );
 }

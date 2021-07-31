@@ -20,7 +20,7 @@ interface SideNavProps {
 
 export function SideNav({ currentPath }: SideNavProps) {
   return (
-    <VStack w="15%" h="100vh" bg="brand.400" px="4" py="8" spacing="6">
+    <VStack w="15%" minH="100vh" bg="brand.400" px="4" py="8" spacing="6">
       <Avatar src="https://i.pinimg.com/originals/56/17/af/5617af08114fbd4068831424cbdb61ef.jpg" />
       <Text fontSize="lg" fontWeight="semibold" color="white">
         @bluenitos
