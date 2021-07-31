@@ -12,12 +12,14 @@ import { Icon, IconButton, Link, Text, VStack } from "@chakra-ui/react";
 import { Logo } from "../modules/authentication/components/Logo";
 import { ApplicationPaths, Paths } from "../types";
 import { Avatar } from "./Avatar";
+import { useRouter } from "next/dist/client/router";
 
 interface SideNavProps {
   currentPath: Paths;
 }
 
 export function SideNav({ currentPath }: SideNavProps) {
+  const router = useRouter();
   return (
     <VStack w="15%" minH="100vh" bg="brand.400" px="4" py="8" spacing="6">
       <Avatar src="https://i.pinimg.com/originals/56/17/af/5617af08114fbd4068831424cbdb61ef.jpg" />
@@ -29,7 +31,7 @@ export function SideNav({ currentPath }: SideNavProps) {
         <VStack spacing="0">
           <IconButton
             as={Link}
-            to={ApplicationPaths.HOME}
+            onClick={() => router.push(ApplicationPaths.HOME)}
             m="0"
             aria-label="home"
             color={
@@ -51,7 +53,7 @@ export function SideNav({ currentPath }: SideNavProps) {
         <VStack spacing="0">
           <IconButton
             as={Link}
-            to={ApplicationPaths.CHALLENGES}
+            onClick={() => router.push(ApplicationPaths.HOME)}
             m="0"
             aria-label="home"
             color={
@@ -73,7 +75,7 @@ export function SideNav({ currentPath }: SideNavProps) {
         <VStack spacing="0">
           <IconButton
             as={Link}
-            to={ApplicationPaths.RANKING}
+            onClick={() => router.push(ApplicationPaths.HOME)}
             m="0"
             aria-label="home"
             color={
@@ -95,7 +97,7 @@ export function SideNav({ currentPath }: SideNavProps) {
         <VStack spacing="0">
           <IconButton
             as={Link}
-            to={ApplicationPaths.PROGRESS}
+            onClick={() => router.push(ApplicationPaths.HOME)}
             m="0"
             aria-label="home"
             color={
@@ -117,7 +119,7 @@ export function SideNav({ currentPath }: SideNavProps) {
         <VStack spacing="0">
           <IconButton
             as={Link}
-            to={ApplicationPaths.PROFILE}
+            onClick={() => router.push(ApplicationPaths.HOME)}
             m="0"
             aria-label="home"
             color={

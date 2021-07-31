@@ -62,7 +62,7 @@ const start = () => {
       </VStack>
       <Image src={Images.STARTCOVER} alt="start cover" />
       <Footer
-        href="https://storyset.com/web"
+        path="https://storyset.com/web"
         credits="Web illustrations by Storyset"
       />
     </Flex>

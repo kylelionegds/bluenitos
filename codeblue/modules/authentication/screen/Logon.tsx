@@ -289,7 +289,7 @@ export default function Logon() {
 
             <Text
               as={Link}
-              to={ApplicationPaths.LOGIN}
+              onClick={() => router.push(ApplicationPaths.HOME)}
               fontSize="md"
               color="white"
               _hover={{ color: "brand.200" }}
@@ -304,7 +304,7 @@ export default function Logon() {
         <ImText />
 
         <Footer
-          href="https://br.freepik.com/vetores/icone"
+          path="https://br.freepik.com/vetores/icone"
           credits="Ícone vetor criado por fullvector - br.freepik.com"
         />
       </Flex>

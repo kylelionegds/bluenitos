@@ -1,11 +1,14 @@
 import React from "react";
-import { HStack, Link, LinkProps, Text } from "@chakra-ui/react";
+import { HStack, Link, Text } from "@chakra-ui/react";
+import { useRouter } from "next/dist/client/router";
 
-interface FooterProps extends LinkProps {
+interface FooterProps {
   credits?: string;
+  path?: string;
 }
 
-export function Footer({ credits, href }: FooterProps) {
+export function Footer({ credits, path }: FooterProps) {
+  const router = useRouter();
   return (
     <HStack
       w="100%"
@@ -24,7 +27,7 @@ export function Footer({ credits, href }: FooterProps) {
       <Text
         display={["none", "none", "flex"]}
         as={Link}
-        to={href}
+        onClick={() => router.push(path!)}
         _hover={{ color: "brand.200" }}
       >
         {credits}
