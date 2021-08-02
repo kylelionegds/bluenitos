@@ -102,7 +102,7 @@ Feito com :heart: por
 <a href="https://github.com/kylelionegds" target="_blank">Caio Edgs</a>\
 <a href="https://github.com/c-Tos1wa" target="_blank">Cristina Iwassaki</a>\
 <a href="https://github.com/jvitorcardoso" target="_blank">João Cardoso</a>\
-<a href="https://github.com/JulianePires" target="_blank">Juliane Pires</a>
+<a href="https://github.com/JulianePires" target="_blank">Juliane Pires</a>\
 <a href="https://github.com/mariferreira00" target="_blank">Maria</a>
 
 &#xa0;
