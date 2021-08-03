@@ -5,6 +5,10 @@ import { Flex, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import { Footer } from "../components/Footer";
 import { Images } from "../constants";
 import { StartButton } from "../modules/start/components/StartButton";
+import { TOKEN_KEY } from "../utils/authenticated";
+import { ApplicationPaths } from "../types";
+import { parseCookies } from "nookies";
+import { GetServerSideProps } from "next";
 
 const start = () => {
   return (
@@ -67,6 +71,23 @@ const start = () => {
       />
     </Flex>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { [TOKEN_KEY]: token } = parseCookies(ctx);
+
+  if (token) {
+    return {
+      redirect: {
+        destination: ApplicationPaths.HOME,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default start;
