@@ -1,7 +1,4 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { NextPageContext } from "next";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 const { NEXT_PUBLIC_BASE_URL } = process.env;
 
 const api = axios.create({
