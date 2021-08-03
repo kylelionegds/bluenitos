@@ -16,6 +16,9 @@ const styles = {
     heading: {
       fontFamily: "JetBrains Mono",
     },
+    strong: {
+      color: "brand.200",
+    },
   },
 };
 
