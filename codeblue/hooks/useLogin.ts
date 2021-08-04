@@ -1,5 +1,4 @@
-import { NextPageContext } from "next";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import requestAxios from "../utils/requests";
 
 export type LoginData = {
