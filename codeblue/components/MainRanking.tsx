@@ -47,7 +47,9 @@ export function MainRanking({
       <Text color="gray.400" fontSize="18" fontWeight="600">
         {name}
       </Text>
-      <Text color="gray.400">{String(points)} pontos</Text>
+      <Text display={["none", "none", "flex"]} color="gray.400">
+        {String(points)} pontos
+      </Text>
     </HStack>
   );
 }

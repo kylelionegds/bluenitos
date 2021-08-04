@@ -23,7 +23,12 @@ export function SideNav({ currentPath }: SideNavProps) {
   return (
     <VStack w="15%" minH="100vh" bg="brand.400" px="4" py="8" spacing="6">
       <Avatar src="https://i.pinimg.com/originals/56/17/af/5617af08114fbd4068831424cbdb61ef.jpg" />
-      <Text fontSize="lg" fontWeight="semibold" color="white">
+      <Text
+        display={["none", "none", "flex"]}
+        fontSize="lg"
+        fontWeight="semibold"
+        color="white"
+      >
         @bluenitos
       </Text>
       <Logo />
@@ -31,6 +36,7 @@ export function SideNav({ currentPath }: SideNavProps) {
         <VStack spacing="0">
           <IconButton
             as={Link}
+            href={ApplicationPaths.HOME}
             onClick={() => router.push(ApplicationPaths.HOME)}
             m="0"
             aria-label="home"
@@ -46,16 +52,16 @@ export function SideNav({ currentPath }: SideNavProps) {
             variant="nav"
             icon={<Icon as={FaHome} fontSize="2xl" />}
           />
-          <Text color="white" m="0">
+          <Text display={["none", "none", "flex"]} color="white" m="0">
             início
           </Text>
         </VStack>
         <VStack spacing="0">
           <IconButton
             as={Link}
-            onClick={() => router.push(ApplicationPaths.HOME)}
+            onClick={() => router.push(ApplicationPaths.CHALLENGES)}
             m="0"
-            aria-label="home"
+            aria-label="challenges"
             color={
               currentPath === ApplicationPaths.CHALLENGES.replace("/", "")
                 ? "brand.200"
@@ -68,16 +74,16 @@ export function SideNav({ currentPath }: SideNavProps) {
             variant="nav"
             icon={<Icon as={FaDumbbell} fontSize="2xl" />}
           />
-          <Text color="white" m="0">
+          <Text display={["none", "none", "flex"]} color="white" m="0">
             desafios
           </Text>
         </VStack>
         <VStack spacing="0">
           <IconButton
             as={Link}
-            onClick={() => router.push(ApplicationPaths.HOME)}
+            onClick={() => router.push(ApplicationPaths.RANKING)}
             m="0"
-            aria-label="home"
+            aria-label="ranking"
             color={
               currentPath === ApplicationPaths.RANKING.replace("/", "")
                 ? "brand.200"
@@ -90,16 +96,16 @@ export function SideNav({ currentPath }: SideNavProps) {
             variant="nav"
             icon={<Icon as={FaAward} fontSize="2xl" />}
           />
-          <Text color="white" m="0">
+          <Text display={["none", "none", "flex"]} color="white" m="0">
             ranking
           </Text>
         </VStack>
         <VStack spacing="0">
           <IconButton
             as={Link}
-            onClick={() => router.push(ApplicationPaths.HOME)}
+            onClick={() => router.push(ApplicationPaths.PROGRESS)}
             m="0"
-            aria-label="home"
+            aria-label="progress"
             color={
               currentPath === ApplicationPaths.PROGRESS.replace("/", "")
                 ? "brand.200"
@@ -112,16 +118,16 @@ export function SideNav({ currentPath }: SideNavProps) {
             variant="nav"
             icon={<Icon as={FaCheckCircle} fontSize="xl" />}
           />
-          <Text color="white" m="0">
+          <Text display={["none", "none", "flex"]} color="white" m="0">
             progresso
           </Text>
         </VStack>
         <VStack spacing="0">
           <IconButton
             as={Link}
-            onClick={() => router.push(ApplicationPaths.HOME)}
+            onClick={() => router.push(ApplicationPaths.PROFILE)}
             m="0"
-            aria-label="home"
+            aria-label="profile"
             color={
               currentPath === ApplicationPaths.PROFILE.replace("/", "")
                 ? "brand.200"
@@ -134,7 +140,7 @@ export function SideNav({ currentPath }: SideNavProps) {
             variant="nav"
             icon={<Icon as={FaUser} fontSize="xl" />}
           />
-          <Text color="white" m="0">
+          <Text display={["none", "none", "flex"]} color="white" m="0">
             perfil
           </Text>
         </VStack>

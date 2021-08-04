@@ -98,6 +98,7 @@ const Create = () => {
           Sobrenome: values.Sobrenome,
           PasswordHash: values.PasswordHash,
           Username: values.Username,
+          Avatar: values.Avatar,
         },
         {
           onSuccess: () => {
@@ -274,7 +275,15 @@ const Create = () => {
                 />
               </FormControl>
             </VStack>
-            <Button variant="solid" type="submit" w="80%" mt="8">
+            <Button
+              _hover={{
+                color: "white",
+                bgColor: "brand.800",
+              }}
+              type="submit"
+              w="80%"
+              mt="8"
+            >
               Criar conta
             </Button>
 

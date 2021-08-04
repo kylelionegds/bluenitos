@@ -7,6 +7,7 @@ interface RegisterData {
   PasswordHash: string;
   Nome: string;
   Sobrenome: string;
+  Avatar: string;
 }
 
 export const REGISTER_KEY = "registerUser";

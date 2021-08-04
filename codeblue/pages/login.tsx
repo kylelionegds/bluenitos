@@ -138,7 +138,10 @@ const Login = () => {
           <Button
             isLoading={isLoading}
             w="80"
-            variant="solid"
+            _hover={{
+              color: "white",
+              bgColor: "brand.800",
+            }}
             type="submit"
             mt="6"
           >
