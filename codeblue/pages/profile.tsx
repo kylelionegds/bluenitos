@@ -9,7 +9,7 @@ const profile = () => {
       
       <HStack align="stretch" alignItems="left" direction="column">
 
-        <HStack ml='10'>
+        <HStack ml='40'>
           <VStack>
             <Box w='40' h='40' color='white' bg='brand.800' borderRadius='10' mt='10'>
               <Text alignItems='center'>
@@ -29,21 +29,19 @@ const profile = () => {
         <Spacer />
 
         <VStack mr='20'>
-          <Image boxSize="380px" src='/images/mocacodando.png' />
+            <Image boxSize="380px" src='/images/mocacodando.png' />
         </VStack>
+        
 
       </HStack>
 
-     
-
-
-      <VStack h="100px" direction="column" alignItems='center'>
+      <VStack w='100%' h='100%' direction="column" alignItems='center'>
         
         <Text fontSize='20px'>
           Conquistas:
         </Text>
         
-        <Box w='80' h='40' bg='brand.800' borderRadius='10'>
+        <Box w='80%' h='40' bg='brand.800' borderRadius='10'>
 
         </Box>
       </VStack>
@@ -68,5 +66,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     props: {},
   };
 };
+
 
 export default profile;
