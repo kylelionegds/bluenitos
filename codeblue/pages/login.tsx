@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { GetServerSideProps } from "next";
 import { useRouter } from "next/dist/client/router";
 import { BsBoxArrowInRight } from "react-icons/bs";
 import { FaEnvelope, FaLock } from "react-icons/fa";
@@ -17,15 +18,20 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-import { Footer } from "../../../components/Footer";
-import { FormInput } from "../../../components/FormInput";
-import { Images } from "../../../constants";
-import { useLogin } from "../../../hooks/useLogin";
-import { ApplicationPaths } from "../../../types";
-import ImText from "../components/ImageFront";
+import { Footer } from "../components/Footer";
+import { FormInput } from "../components/FormInput";
+import { InitialImage } from "../components/InitialImage";
+import { Images } from "../constants";
+import { AuthContext } from "../context/AuthContext";
+import { useLogin } from "../hooks/useLogin";
+import { ApplicationPaths } from "../types";
+import { useContext } from "react";
+import { TOKEN_KEY } from "../utils/authenticated";
+import { parseCookies } from "nookies";
 
-export default function Login() {
-  const { mutate } = useLogin();
+const Login = () => {
+  const { mutate, isLoading } = useLogin();
+  const { handleSetToken } = useContext(AuthContext);
   let router = useRouter();
 
   type formikType = {
@@ -51,7 +57,7 @@ export default function Login() {
         { Email: values.Email, PasswordHash: values.PasswordHash },
         {
           onSuccess: (data) => {
-            console.log(data);
+            handleSetToken(data);
             router.push(ApplicationPaths.HOME);
           },
           onError: (err) => {
@@ -90,27 +96,24 @@ export default function Login() {
         />
 
         <Stack
-          w="100%"
-          spacing={8}
+          w="80%"
+          spacing={4}
           alignItems="center"
           justifyContent="center"
           my="10"
           direction="column"
         >
-          <Image src={Images.LOGO} />
+          <Image src={Images.LOGO} alt="codeblue logo" />
           <Text color="white" fontSize="2xl">
             Faça seu cadastro
           </Text>
-          <VStack spacing={2} w={["80%", "80%", "80%", "auto"]}>
+          <VStack spacing={2} w={["80%", "80%", "80%", "80"]}>
             <FormControl
               id="Email"
-              w="auto"
               isRequired
-              isInvalid={!!formik.errors.Email && !!formik.touched.Email}
+              isInvalid={!!formik.errors.Email}
             >
-              <FormErrorMessage w="auto">
-                {formik.errors.Email}
-              </FormErrorMessage>
+              <FormErrorMessage>{formik.errors.Email}</FormErrorMessage>
               <FormInput
                 icon={FaEnvelope}
                 onChange={formik.handleChange("Email")}
@@ -120,15 +123,10 @@ export default function Login() {
             </FormControl>
             <FormControl
               id="PasswordHash"
-              w="auto"
               isRequired
-              isInvalid={
-                !!formik.errors.PasswordHash && !!formik.touched.PasswordHash
-              }
+              isInvalid={!!formik.errors.PasswordHash}
             >
-              <FormErrorMessage w="auto">
-                {formik.errors.PasswordHash}
-              </FormErrorMessage>
+              <FormErrorMessage>{formik.errors.PasswordHash}</FormErrorMessage>
               <FormInput
                 icon={FaLock}
                 onChange={formik.handleChange("PasswordHash")}
@@ -137,25 +135,29 @@ export default function Login() {
               />
             </FormControl>
           </VStack>
-          <Button variant="solid" type="submit" w="40" mt="8">
+          <Button
+            isLoading={isLoading}
+            w="80"
+            variant="solid"
+            type="submit"
+            mt="6"
+          >
             Entrar
           </Button>
 
           <Text
             as={Link}
-            onClick={() => router.push(ApplicationPaths.HOME)}
+            onClick={() => router.push(ApplicationPaths.CREATE)}
             fontSize="md"
             color="white"
             _hover={{ color: "brand.200" }}
-            mt="8"
+            mt="2"
           >
             <Icon as={BsBoxArrowInRight} color="brand.800" mr="2" />
             Criar conta
           </Text>
         </Stack>
-
-        <ImText />
-
+        <InitialImage />
         <Footer
           path="https://br.freepik.com/vetores/icone"
           credits="Ícone vetor criado por fullvector - br.freepik.com"
@@ -163,4 +165,23 @@ export default function Login() {
       </Flex>
     </form>
   );
-}
+};
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { [TOKEN_KEY]: token } = parseCookies(ctx);
+
+  if (token) {
+    return {
+      redirect: {
+        destination: ApplicationPaths.HOME,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
+
+export default Login;
