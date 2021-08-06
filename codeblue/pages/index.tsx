@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 import { Flex, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 
 import { Footer } from "../components/Footer";

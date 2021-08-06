@@ -2,10 +2,13 @@ import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
 import React from "react";
 import { Layout } from "../components/Layout";
+import { useGetChallenges } from "../hooks/useChallenges";
 import { ApplicationPaths } from "../types";
 import { TOKEN_KEY } from "../utils/authenticated";
 
-const challenges = () => {
+const Challenges = () => {
+  const { data, isLoading, isSuccess } = useGetChallenges();
+
   return (
     <Layout title="desafios" currentPath="challenges">
       {" "}
@@ -26,8 +29,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 
   return {
-    props: {},
+    props: { token: token },
   };
 };
 
-export default challenges;
+export default Challenges;

@@ -1,3 +1,5 @@
+import { languages } from "../types";
+
 export const Images = {
   LOGO: "/images/logo.svg",
   COVER: "/images/photo.png",
@@ -7,3 +9,16 @@ export const Images = {
   MYSQL: "/images/mysql.svg",
   CSHARP: "/images/c_sharp.svg",
 };
+
+export const languagesArray: languages[] = [
+  "javascript",
+  "java",
+  "python",
+  "ruby",
+  "cpp",
+  "sql",
+  "csharp",
+  "elixir",
+  "typescript",
+  "dart",
+];

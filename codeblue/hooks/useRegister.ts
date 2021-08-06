@@ -2,8 +2,8 @@ import { useMutation } from "react-query";
 import requestAxios from "../utils/requests";
 
 interface RegisterData {
-  Username: string;
-  Email: string;
+  Username?: string;
+  Email?: string;
   PasswordHash: string;
   Nome: string;
   Sobrenome: string;
@@ -14,7 +14,7 @@ export const REGISTER_KEY = "registerUser";
 
 export const register = async (info: RegisterData) => {
   const { data } = await requestAxios({
-    url: "/Auth/Register",
+    url: "/api/Auth/Register",
     method: "POST",
     data: info,
   });

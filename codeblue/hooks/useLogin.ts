@@ -10,7 +10,7 @@ export const LOGIN_KEY = "loginUser";
 
 export const login = async (info: LoginData): Promise<string> => {
   const { data } = await requestAxios({
-    url: "/Auth/Token",
+    url: "/api/Auth/Token",
     method: "POST",
     data: info,
   });

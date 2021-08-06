@@ -1,5 +1,17 @@
 export type Paths = "home" | "challenges" | "ranking" | "progress" | "profile";
 
+export type languages =
+  | "javascript"
+  | "java"
+  | "python"
+  | "dart"
+  | "elixir"
+  | "sql"
+  | "csharp"
+  | "cpp"
+  | "typescript"
+  | "ruby";
+
 export const ApplicationPaths = {
   START: "/",
   LOGIN: "/login",

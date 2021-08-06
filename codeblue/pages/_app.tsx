@@ -3,8 +3,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 
-import theme from "../styles/theme";
 import { AuthProvider } from "../context/AuthContext";
+import theme from "../styles/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();

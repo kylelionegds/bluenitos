@@ -42,7 +42,7 @@ const langugages = [
   },
 ];
 
-const home = () => {
+const Home = () => {
   const router = useRouter();
   return (
     <Layout title="home" currentPath="home">
@@ -181,4 +181,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-export default home;
+export default Home;
