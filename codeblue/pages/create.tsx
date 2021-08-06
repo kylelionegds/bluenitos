@@ -23,18 +23,20 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-
-import { ApplicationPaths } from "../../../types";
 import { useRouter } from "next/dist/client/router";
-import { useRegister } from "../../../hooks/useRegister";
-import { passwordRegex } from "../../../utils/functions";
-import { Images } from "../../../constants";
-import { InputFile } from "../../../components/FileInput";
-import { FormInput } from "../../../components/FormInput";
-import ImText from "../components/ImageFront";
-import { Footer } from "../../../components/Footer";
+import { useRegister } from "../hooks/useRegister";
+import { passwordRegex } from "../utils/functions";
+import { ApplicationPaths } from "../types";
+import { InputFile } from "../components/FileInput";
+import { Images } from "../constants";
+import { FormInput } from "../components/FormInput";
+import { InitialImage } from "../components/InitialImage";
+import { Footer } from "../components/Footer";
+import { GetServerSideProps } from "next";
+import { TOKEN_KEY } from "../utils/authenticated";
+import { parseCookies } from "nookies";
 
-export default function Logon() {
+const Create = () => {
   const InputRef = useRef<HTMLInputElement>();
   let router = useRouter();
 
@@ -96,6 +98,7 @@ export default function Logon() {
           Sobrenome: values.Sobrenome,
           PasswordHash: values.PasswordHash,
           Username: values.Username,
+          Avatar: values.Avatar,
         },
         {
           onSuccess: () => {
@@ -188,17 +191,16 @@ export default function Logon() {
             </VStack>
           </FormControl>
           <VStack
-            w={["100%", "100%", "auto", "auto"]}
+            w={["100%", "100%", "auto", "80"]}
             spacing={4}
             alignItems="center"
           >
             <Text color="white" fontSize="2xl">
               Faça seu cadastro
             </Text>
-            <VStack spacing={2} w={["80%", "80%", "80%", "auto"]}>
+            <VStack spacing={2} w={["80%", "80%", "80%", "100%"]}>
               <FormControl
                 id="Nome"
-                w="auto"
                 isRequired
                 isInvalid={!!formik.errors.Nome && !!formik.touched.Nome}
               >
@@ -214,15 +216,12 @@ export default function Logon() {
               </FormControl>
               <FormControl
                 id="Sobrenome"
-                w="auto"
                 isRequired
                 isInvalid={
                   !!formik.errors.Sobrenome && !!formik.touched.Sobrenome
                 }
               >
-                <FormErrorMessage w="auto">
-                  {formik.errors.Sobrenome}
-                </FormErrorMessage>
+                <FormErrorMessage>{formik.errors.Sobrenome}</FormErrorMessage>
                 <FormInput
                   icon={FaRegUser}
                   onChange={formik.handleChange("Sobrenome")}
@@ -232,15 +231,12 @@ export default function Logon() {
               </FormControl>
               <FormControl
                 id="Username"
-                w="auto"
                 isRequired
                 isInvalid={
                   !!formik.errors.Username && !!formik.touched.Username
                 }
               >
-                <FormErrorMessage w="auto">
-                  {formik.errors.Username}
-                </FormErrorMessage>
+                <FormErrorMessage>{formik.errors.Username}</FormErrorMessage>
                 <FormInput
                   icon={FaUserAstronaut}
                   onChange={formik.handleChange("Username")}
@@ -250,13 +246,10 @@ export default function Logon() {
               </FormControl>
               <FormControl
                 id="Email"
-                w="auto"
                 isRequired
                 isInvalid={!!formik.errors.Email && !!formik.touched.Email}
               >
-                <FormErrorMessage w="auto">
-                  {formik.errors.Email}
-                </FormErrorMessage>
+                <FormErrorMessage>{formik.errors.Email}</FormErrorMessage>
                 <FormInput
                   icon={FaEnvelope}
                   onChange={formik.handleChange("Email")}
@@ -266,13 +259,12 @@ export default function Logon() {
               </FormControl>
               <FormControl
                 id="PasswordHash"
-                w="auto"
                 isRequired
                 isInvalid={
                   !!formik.errors.PasswordHash && !!formik.touched.PasswordHash
                 }
               >
-                <FormErrorMessage w="auto">
+                <FormErrorMessage>
                   {formik.errors.PasswordHash}
                 </FormErrorMessage>
                 <FormInput
@@ -283,13 +275,21 @@ export default function Logon() {
                 />
               </FormControl>
             </VStack>
-            <Button variant="solid" type="submit" w="80%" mt="8">
+            <Button
+              _hover={{
+                color: "white",
+                bgColor: "brand.800",
+              }}
+              type="submit"
+              w="80%"
+              mt="8"
+            >
               Criar conta
             </Button>
 
             <Text
               as={Link}
-              onClick={() => router.push(ApplicationPaths.HOME)}
+              onClick={() => router.push(ApplicationPaths.LOGIN)}
               fontSize="md"
               color="white"
               _hover={{ color: "brand.200" }}
@@ -301,7 +301,7 @@ export default function Logon() {
           </VStack>
         </Stack>
 
-        <ImText />
+        <InitialImage />
 
         <Footer
           path="https://br.freepik.com/vetores/icone"
@@ -310,4 +310,23 @@ export default function Logon() {
       </Flex>
     </form>
   );
-}
+};
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { [TOKEN_KEY]: token } = parseCookies(ctx);
+
+  if (token) {
+    return {
+      redirect: {
+        destination: ApplicationPaths.HOME,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
+
+export default Create;

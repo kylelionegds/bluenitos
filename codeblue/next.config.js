@@ -12,5 +12,8 @@ module.exports = (phase, { defaultConfig }) => {
     },
     ...withImages(defaultConfig),
     reactStrictMode: true,
+    env: {
+      NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+    },
   };
 };

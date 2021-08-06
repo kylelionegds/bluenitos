@@ -1,7 +1,9 @@
+import { GetServerSideProps } from "next";
+import { parseCookies } from "nookies";
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 
-import { Button, Flex, HStack, Icon, VStack } from "@chakra-ui/react";
+import { Button, Flex, HStack, Icon, Stack, VStack } from "@chakra-ui/react";
 
 import { Language } from "../components/Language";
 import { Layout } from "../components/Layout";
@@ -9,6 +11,9 @@ import { MainRanking } from "../components/MainRanking";
 import { SessionTitle } from "../components/SessionTitle";
 import SingleChallenge from "../components/SingleChallenge";
 import SingleProgress from "../components/SingleProgress";
+import { ApplicationPaths } from "../types";
+import { TOKEN_KEY } from "../utils/authenticated";
+import { useRouter } from "next/dist/client/router";
 
 const langugages = [
   {
@@ -38,13 +43,19 @@ const langugages = [
 ];
 
 const home = () => {
+  const router = useRouter();
   return (
     <Layout title="home" currentPath="home">
       <VStack spacing={12} alignItems="flex-start" mt="4">
         <VStack spacing={2} alignItems="flex-start">
           <>
             <SessionTitle title="linguagens" />
-            <HStack w="100%" px={3} spacing={10}>
+            <Stack
+              w="100%"
+              px={3}
+              spacing={10}
+              direction={["column", "column", "column", "row"]}
+            >
               {langugages.map((language, index) => (
                 <Language
                   key={index}
@@ -53,33 +64,44 @@ const home = () => {
                   description={language.description}
                 />
               ))}
-            </HStack>
+            </Stack>
           </>
         </VStack>
 
         <VStack spacing={2} alignItems="flex-start">
           <>
             <SessionTitle title="principais desafios" />
-            <HStack ml={5} spacing={6}>
+            <Stack
+              mx="auto"
+              spacing={6}
+              w="100%"
+              alignItems="center"
+              direction={["column", "column", "column", "row"]}
+            >
               <SingleChallenge />
               <SingleChallenge />
               <SingleChallenge />
               <SingleChallenge />
-            </HStack>
+            </Stack>
           </>
         </VStack>
 
-        <HStack px="20" alignItems="flex-start" w="100%">
+        <Stack
+          px={["4", "20"]}
+          alignItems="flex-start"
+          w="100%"
+          direction={["column", "column", "column", "row"]}
+        >
           <VStack alignItems="flex-start" w="100%">
             <SessionTitle title="ranking geral" />
 
             <Flex
-              w="96"
+              w={["100%", "100%", "100%", "96"]}
               minH="xs"
               direction="column"
               bg="brand.200"
               rounded="lg"
-              p={2}
+              p={4}
             >
               <MainRanking name="Maria" points={350} classification={1} />
               <MainRanking name="João" points={290} classification={2} />
@@ -89,8 +111,13 @@ const home = () => {
               <Button
                 w="min"
                 color="brand.400"
+                _hover={{
+                  color: "white",
+                  bgColor: "brand.800",
+                }}
                 mt="auto"
                 alignSelf="flex-end"
+                onClick={() => router.push(ApplicationPaths.RANKING)}
                 rightIcon={
                   <Icon as={BsArrowRight} color="brand.400" fontSize="20" />
                 }
@@ -104,20 +131,25 @@ const home = () => {
             <SessionTitle title="meu progresso" />
 
             <Flex
-              w="96"
+              w={["100%", "100%", "100%", "96"]}
               minH="xs"
               direction="column"
               bg="brand.200"
               rounded="lg"
-              p={2}
+              p={4}
             >
               <SingleProgress />
 
               <Button
                 w="min"
                 color="brand.400"
+                _hover={{
+                  color: "white",
+                  bgColor: "brand.800",
+                }}
                 mt="auto"
                 alignSelf="flex-end"
+                onClick={() => router.push(ApplicationPaths.PROGRESS)}
                 rightIcon={
                   <Icon as={BsArrowRight} color="brand.400" fontSize="20" />
                 }
@@ -126,10 +158,27 @@ const home = () => {
               </Button>
             </Flex>
           </VStack>
-        </HStack>
+        </Stack>
       </VStack>
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { [TOKEN_KEY]: token } = parseCookies(ctx);
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: ApplicationPaths.START,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default home;

@@ -8,12 +8,13 @@ export type LoginData = {
 
 export const LOGIN_KEY = "loginUser";
 
-export const login = async (info: LoginData) => {
+export const login = async (info: LoginData): Promise<string> => {
   const { data } = await requestAxios({
-    url: "/api/auth/Token",
+    url: "/Auth/Token",
     method: "POST",
     data: info,
   });
+
   return data;
 };
 

@@ -5,14 +5,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 
 export default function SingleChallenge() {
   return (
-    <Box
-      p={3}
-      mt={3}
-      mb={5}
-      boxShadow="4px 4px #C869A9"
-      rounded="lg"
-      bg="brand.400"
-    >
+    <Box p={3} mt={3} boxShadow="4px 4px #C869A9" rounded="lg" bg="brand.400">
       <HStack justifyContent="center">
         <Icon as={FaDumbbell} color="yellow" fontSize="2xl" />
         <Text color="brand.800" fontSize="18" fontWeight="600">

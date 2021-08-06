@@ -1,24 +1,20 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { getToken, handleLogout } from "./authenticated";
-
-const { REACT_APP_BASE_URL } = process.env;
+const { NEXT_PUBLIC_BASE_URL } = process.env;
 
 const api = axios.create({
-  baseURL: REACT_APP_BASE_URL,
+  baseURL: NEXT_PUBLIC_BASE_URL,
   timeout: 60000,
 });
-api.interceptors.response.use(
-  function (response) {
-    return response;
+
+api.interceptors.request.use(
+  async function (config) {
+    return config;
   },
   function (error) {
-    if (401 === error?.response?.status) {
-      handleLogout();
-    } else {
-      return Promise.reject(error);
-    }
+    return Promise.reject(error);
   }
 );
+
 export class ResponseError extends Error {
   public response: Response;
 
@@ -78,14 +74,6 @@ export async function request(
 export default async function requestAxios(config: AxiosRequestConfig) {
   if (config.method === "GET") {
     config.data = "";
-  }
-
-  const token = getToken();
-
-  if (token !== null) {
-    config.headers = {
-      Authorization: `Bearer ${token}`,
-    };
   }
 
   return await api.request(config);

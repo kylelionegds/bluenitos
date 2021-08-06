@@ -11,7 +11,7 @@ const buttons = {
       bgColor: "brand.300",
       color: "brand.700",
       _hover: {
-        bgColor: "brand.400",
+        bgColor: "brand.800",
       },
     },
     nav: {
