@@ -1,4 +1,5 @@
 import {
+  Button,
   HStack,
   Menu,
   MenuButton,
@@ -32,7 +33,7 @@ export function Editor({ onChange }: EditorProps) {
           <Text>Language:</Text>
           <Menu>
             <MenuButton>{selectedLanguage}</MenuButton>
-            <MenuList>
+            <MenuList as={Button}>
               {languagesArray.map((lang, index) => (
                 <MenuItem
                   key={index}

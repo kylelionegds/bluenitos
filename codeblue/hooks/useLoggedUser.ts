@@ -26,14 +26,17 @@ export type UserReturn = {
 
 export const GET_USER_DATA = "getLoggedUser";
 
-export const getLoggedUser = async (): Promise<UserReturn> => {
+export const getLoggedUser = async (token: string): Promise<UserReturn> => {
   const { data } = await requestAxios({
-    url: `/api/Auth/LoggedUser/`,
+    url: `/api/Auth/LoggedUser`,
     method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
   return data;
 };
 
-export const useLoggedUser = () => {
-  return useQuery(GET_USER_DATA, () => getLoggedUser());
+export const useLoggedUser = (token: string) => {
+  return useQuery([GET_USER_DATA, token], () => getLoggedUser(token));
 };

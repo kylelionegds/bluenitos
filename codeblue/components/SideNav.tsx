@@ -13,6 +13,9 @@ import { Logo } from "../modules/authentication/components/Logo";
 import { ApplicationPaths, Paths } from "../types";
 import { Avatar } from "./Avatar";
 import { useRouter } from "next/dist/client/router";
+import { parseCookies } from "nookies";
+import { useLoggedUser } from "../hooks/useLoggedUser";
+import { TOKEN_KEY } from "../utils/authenticated";
 
 interface SideNavProps {
   currentPath: Paths;
@@ -20,16 +23,18 @@ interface SideNavProps {
 
 export function SideNav({ currentPath }: SideNavProps) {
   const router = useRouter();
+  const { [TOKEN_KEY]: token } = parseCookies(null);
+  const { data } = useLoggedUser(token);
   return (
     <VStack w="15%" minH="100vh" bg="brand.400" px="4" py="8" spacing="6">
-      <Avatar src="https://i.pinimg.com/originals/56/17/af/5617af08114fbd4068831424cbdb61ef.jpg" />
+      <Avatar name={`${data?.nome} ${data?.sobrenome}`} src={data?.avatar} />
       <Text
         display={["none", "none", "flex"]}
         fontSize="lg"
         fontWeight="semibold"
         color="white"
       >
-        @bluenitos
+        {`@${data?.userName}`}
       </Text>
       <Logo />
       <VStack>

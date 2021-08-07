@@ -8,7 +8,7 @@ import { SideNav } from "./SideNav";
 
 interface LayoutProps {
   title: string;
-  currentPath: Paths;
+  currentPath?: Paths;
   children: ReactNode;
 }
 
@@ -19,7 +19,7 @@ export function Layout({ title, currentPath, children }: LayoutProps) {
         <title>{title}</title>
       </Head>
       <Flex w="100%" minH={[0, 0, "100vh"]} bg="brand.300">
-        <SideNav currentPath={currentPath} />
+        <SideNav currentPath={currentPath!} />
         <Flex p="8" w="85%" h="100%" flexDirection="column">
           <Heading
             w="100%"

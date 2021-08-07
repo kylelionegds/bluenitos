@@ -1,9 +1,10 @@
 import { GetServerSideProps } from "next";
+import { useRouter } from "next/dist/client/router";
 import { parseCookies } from "nookies";
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 
-import { Button, Flex, HStack, Icon, Stack, VStack } from "@chakra-ui/react";
+import { Button, Flex, Icon, Spinner, Stack, VStack } from "@chakra-ui/react";
 
 import { Language } from "../components/Language";
 import { Layout } from "../components/Layout";
@@ -13,7 +14,9 @@ import SingleChallenge from "../components/SingleChallenge";
 import SingleProgress from "../components/SingleProgress";
 import { ApplicationPaths } from "../types";
 import { TOKEN_KEY } from "../utils/authenticated";
-import { useRouter } from "next/dist/client/router";
+import { useGetChallenges } from "../hooks/useChallenges";
+import { useGetUsersRank } from "../hooks/useRanking";
+import { useLoggedUser } from "../hooks/useLoggedUser";
 
 const langugages = [
   {
@@ -43,11 +46,20 @@ const langugages = [
 ];
 
 const Home = () => {
+  const { [TOKEN_KEY]: token } = parseCookies(null);
+  const challenges = useGetChallenges(token);
+  const ranking = useGetUsersRank({ qtd: 4, token: token });
+  const user = useLoggedUser(token);
+
+  const slicedArray = challenges.data?.slice(0, 4);
+  const userChallenges = user.data?.exercises?.slice(0, 4);
+
   const router = useRouter();
+
   return (
     <Layout title="home" currentPath="home">
-      <VStack spacing={12} alignItems="flex-start" mt="4">
-        <VStack spacing={2} alignItems="flex-start">
+      <VStack spacing={12} alignItems="flex-start" w="100%" mt="4">
+        <VStack spacing={2} alignItems="flex-start" w="100%">
           <>
             <SessionTitle title="linguagens" />
             <Stack
@@ -68,7 +80,7 @@ const Home = () => {
           </>
         </VStack>
 
-        <VStack spacing={2} alignItems="flex-start">
+        <VStack w="100%" spacing={2} alignItems="flex-start">
           <>
             <SessionTitle title="principais desafios" />
             <Stack
@@ -78,10 +90,19 @@ const Home = () => {
               alignItems="center"
               direction={["column", "column", "column", "row"]}
             >
-              <SingleChallenge />
-              <SingleChallenge />
-              <SingleChallenge />
-              <SingleChallenge />
+              {challenges.isLoading ? (
+                <Spinner />
+              ) : (
+                challenges.isSuccess &&
+                slicedArray?.map((challenge) => (
+                  <SingleChallenge
+                    key={challenge.id}
+                    id={challenge.id}
+                    description={challenge.descricao}
+                    title={`desafio ${challenge.id}`}
+                  />
+                ))
+              )}
             </Stack>
           </>
         </VStack>
@@ -103,10 +124,20 @@ const Home = () => {
               rounded="lg"
               p={4}
             >
-              <MainRanking name="Maria" points={350} classification={1} />
-              <MainRanking name="João" points={290} classification={2} />
-              <MainRanking name="Pedro" points={250} classification={3} />
-              <MainRanking name="Marta" points={120} classification={4} />
+              {ranking.isLoading ? (
+                <Spinner />
+              ) : (
+                ranking.isSuccess &&
+                ranking.data?.map((user, index) => (
+                  <MainRanking
+                    key={user.id}
+                    avatar={user.avatar}
+                    name={`${user.nome} ${user.sobrenome}`}
+                    points={user.pontuacao}
+                    classification={index + 1}
+                  />
+                ))
+              )}
 
               <Button
                 w="min"
@@ -138,7 +169,9 @@ const Home = () => {
               rounded="lg"
               p={4}
             >
-              <SingleProgress />
+              {userChallenges?.map((challenge) => (
+                <SingleProgress key={challenge} id={challenge} />
+              ))}
 
               <Button
                 w="min"
@@ -177,7 +210,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 
   return {
-    props: {},
+    props: { token },
   };
 };
 

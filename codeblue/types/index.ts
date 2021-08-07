@@ -21,4 +21,5 @@ export const ApplicationPaths = {
   RANKING: "/ranking",
   PROGRESS: "/progress",
   PROFILE: "/profile",
+  CHALLENGE: "/challenge/[id]",
 };

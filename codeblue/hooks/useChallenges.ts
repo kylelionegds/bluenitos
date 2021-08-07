@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "react-query";
-import requestAxios, { request } from "../utils/requests";
+import requestAxios from "../utils/requests";
 import { UserReturn } from "./useLoggedUser";
 
 export type GetChallengesData = {
@@ -14,16 +14,21 @@ export type GetChallengesData = {
 
 export const GET_CHALLENGES = "getChallenges";
 
-export const getChallenges = async (): Promise<GetChallengesData[]> => {
+export const getChallenges = async (
+  token: string
+): Promise<GetChallengesData[]> => {
   const { data } = await requestAxios({
     url: "/api/Exercises",
     method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
   return data;
 };
 
-export const useGetChallenges = () => {
-  return useQuery(GET_CHALLENGES, () => getChallenges());
+export const useGetChallenges = (token: string) => {
+  return useQuery([GET_CHALLENGES, token], () => getChallenges(token));
 };
 
 /* UPDATE CHALLENGE */
@@ -34,6 +39,7 @@ export type UpdateChallengeData = {
   descricao: string;
   resultado: string;
   pontosPremiacao: number;
+  token: string;
 };
 
 export const updateChallenge = async (
@@ -43,6 +49,9 @@ export const updateChallenge = async (
     url: `/api/Exercises`,
     method: "PUT",
     data: info,
+    headers: {
+      Authorization: `Bearer ${info.token}`,
+    },
   });
   return data;
 };
@@ -57,6 +66,7 @@ export const GET_CHALLENGE = "getChallenge";
 
 interface GetChallengeInfo {
   challenge_id: string;
+  token: string;
 }
 
 export const getChallenge = async (
@@ -65,6 +75,9 @@ export const getChallenge = async (
   const { data } = await requestAxios({
     url: `/api/Exercises/${info.challenge_id}`,
     method: "GET",
+    headers: {
+      Authorization: `Bearer ${info.token}`,
+    },
   });
   return data;
 };
@@ -84,6 +97,9 @@ export const createChallenge = async (
     url: `/api/Exercises`,
     method: "POST",
     data: info,
+    headers: {
+      Authorization: `Bearer ${info.token}`,
+    },
   });
   return data;
 };

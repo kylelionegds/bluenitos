@@ -7,12 +7,14 @@ interface MainRankingProps {
   name: string;
   points: number;
   classification: number;
+  avatar: string;
 }
 
 export function MainRanking({
   name,
   points,
   classification,
+  avatar,
 }: MainRankingProps) {
   const isPodium = () => {
     return classification < 4;
@@ -42,9 +44,9 @@ export function MainRanking({
       <Text color="gray.400" fontWeight="600">
         {classification}º
       </Text>
-      <Avatar size="sm" bg="brand.800" />
+      <Avatar src={avatar} name={name} color="white" size="sm" bg="brand.800" />
 
-      <Text color="gray.400" fontSize="18" fontWeight="600">
+      <Text color="gray.400" fontSize="16" fontWeight="600">
         {name}
       </Text>
       <Text display={["none", "none", "flex"]} color="gray.400">

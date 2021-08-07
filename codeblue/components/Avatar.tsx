@@ -21,7 +21,6 @@ export function Avatar({ name, src }: AvatarProps) {
       <ChakraAvatar
         w={["8", "12"]}
         h={["8", "12"]}
-        bg="white"
         icon={<Icon as={FaUser} color="brand.800" />}
         name={name}
         src={src}
