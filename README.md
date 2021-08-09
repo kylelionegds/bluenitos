@@ -69,7 +69,9 @@ Front-end:
 - [React-Icons](https://react-icons.github.io/react-icons/search?q=two)
 - [Fontawesome](https://fontawesome.com)
 - [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet)
+- [Swagger](https://swagger.io)
 - [Microsoft Azure](https://azure.microsoft.com/pt-br/)
+
 
 ## :white_check_mark: Pré requisitos
 
