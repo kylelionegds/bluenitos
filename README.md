@@ -68,6 +68,9 @@ Front-end:
 - [Ramda](https://ramdajs.com/)
 - [React-Icons](https://react-icons.github.io/react-icons/search?q=two)
 - [Fontawesome](https://fontawesome.com)
+
+Back-end:
+
 - [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet)
 - [Swagger](https://swagger.io)
 - [Microsoft Azure](https://azure.microsoft.com/pt-br/)
