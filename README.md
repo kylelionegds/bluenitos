@@ -73,6 +73,7 @@ Back-end:
 
 - [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet)
 - [Swagger](https://swagger.io)
+- [MS SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-2019)
 - [Microsoft Azure](https://azure.microsoft.com/pt-br/)
 
 
