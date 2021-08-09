@@ -68,6 +68,8 @@ Front-end:
 - [Ramda](https://ramdajs.com/)
 - [React-Icons](https://react-icons.github.io/react-icons/search?q=two)
 - [Fontawesome](https://fontawesome.com)
+- [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet)
+- [Microsoft Azure](https://azure.microsoft.com/pt-br/)
 
 ## :white_check_mark: Pré requisitos
 
