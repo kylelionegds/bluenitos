@@ -43,7 +43,7 @@
 
 ## :dart: Sobre
 
-CodeBlue - Plataforma de
+CodeBlue - Plataforma de resolução de exercícios relacionados a programação.
 
 ## Backlog
 
