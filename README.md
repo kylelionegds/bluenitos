@@ -51,7 +51,7 @@ CodeBlue - Plataforma de resolução de exercícios relacionados a programação
 
 :heavy_check_mark: Navegação dos exercícios através de cards por linguagem específica;\
 :heavy_check_mark: Lista de exercícios contendo pontuação e botão para início;\
-:heavy_check_mark: Editor de texto online com interpretador e intellisense embutidos para resolução dos exercícios;\
+:heavy_check_mark: Editor de texto online com intellisense embutido para resolução dos exercícios;\
 :heavy_check_mark: Ranking geral de pontuadores;\
 :heavy_check_mark: Dashboard de progresso;\
 :heavy_check_mark: Update de dados do usuário.
